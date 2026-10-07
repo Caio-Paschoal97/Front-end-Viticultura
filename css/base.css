@@ -1,8 +1,37 @@
-/* Base: box-sizing, body e tipografia dos títulos. */
+/* Base: box-sizing, fundo, tipografia, foco acessível e utilidades de plataforma. */
 
 * { box-sizing: border-box; }
-body { margin: 0; color: var(--ink); background: var(--canvas); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
-button, input, select, textarea { font: inherit; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--canvas);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
-h1,h2,h3,p { margin: 0; }
-h1,h2,h3,.logo strong { font-family: "Manrope", sans-serif; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3, .logo strong { font-family: "Manrope", sans-serif; }
+
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+
+::selection { background: var(--brand-soft); color: var(--text-strong); }
+
+/* Barra de rolagem discreta, coerente com o tema. */
+* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* Localiza o conteúdo principal para leitores de tela. */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

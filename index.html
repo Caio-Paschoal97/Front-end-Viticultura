@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AgroClima Cloud</title>
+    <meta name="description" content="AgroClima Cloud — dashboard de monitoramento climático, logístico e preditivo para exportadoras de frutas do Vale do São Francisco (Projeto Integrador ADS)." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#167c55" />
+    <title>AgroClima Cloud · Monitoramento climático e logístico</title>
 
-    <!-- Fontes (antes importadas via @import no CSS) -->
+    <!--
+      Tema aplicado antes da primeira pintura para evitar "flash" de tema claro
+      quando o usuário escolheu o escuro. Chave: agroclima.theme (dark | light).
+    -->
+    <script>
+      (function applyStoredTheme() {
+        try {
+          var stored = window.localStorage.getItem('agroclima.theme');
+          document.documentElement.dataset.theme = stored === 'dark' ? 'dark' : 'light';
+        } catch (error) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" />
 
-    <!-- A ordem dos arquivos preserva a cascata do CSS original -->
+    <!-- A ordem dos arquivos preserva a cascata -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/theme-dark.css" />
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/components.css" />

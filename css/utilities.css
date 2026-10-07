@@ -1,12 +1,29 @@
 /*
  * Utilitários.
  *
- * `.overline`: no projeto original a classe `overline` (usada nos rótulos em
- * caixa-alta verde, ex.: "Recomendação de colheita") coincidia com o utilitário
- * `overline` do Tailwind, que acrescentava uma linha acima do texto. Para manter
- * o visual idêntico, o efeito foi preservado aqui. Se a linha não for desejada,
- * basta remover esta regra.
+ * Observação sobre `.overline`: na primeira versão do projeto a classe
+ * `overline` (rótulos em caixa-alta verde) coincidia com um utilitário do
+ * Tailwind que desenhava uma linha acima do texto — efeito colateral, não
+ * intencional. Nesta revisão o rótulo ficou só com (fonte, caixa, espaçamento,
+ * cor) definidos em `pages.css`.
  */
+
 @layer utilities {
-  .overline { text-decoration-line: overline; }
+  .text-muted { color: var(--text-muted); }
+  .text-strong { color: var(--text-strong); }
+  .text-brand { color: var(--brand); }
+  .text-danger { color: var(--danger); }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .nowrap { white-space: nowrap; }
+  .full-width { width: 100%; }
+  .margin-none { margin: 0 !important; }
+  .margin-bottom-none { margin-bottom: 0 !important; }
+  .flex { display: flex; }
+  .flex-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .flex-center { display: flex; align-items: center; gap: 8px; }
+  .flex-wrap { flex-wrap: wrap; }
+  .stack { display: grid; gap: 12px; }
+  .stack-sm { display: grid; gap: 6px; }
+  .hidden { display: none !important; }
 }
